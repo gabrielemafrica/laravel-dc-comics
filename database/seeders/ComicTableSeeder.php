@@ -231,16 +231,19 @@ class ComicTableSeeder extends Seeder
             ],
         ];
         foreach ($comics as $comic) {
-
+                $artists = implode(',', $comic["artists"]);
+                $writers = implode(',', $comic["writers"]);
             Comic :: create([
-                'title' => $comic['title'],
-                'description' => $comic['description'],
-                'thumb' => $comic['thumb'],
-                'price' => $comic['price'],
-                'series' => $comic['series'],
-                'sale_date' => $comic['sale_date'],
-                'type' => $comic['type'],
-            ])
+                "title" => $comic["title"],
+                "description" => $comic["description"],
+                "thumb" => $comic["thumb"],
+                "price" => $comic["price"],
+                "series" => $comic["series"],
+                "sale_date" => $comic["sale_date"],
+                "type" => $comic["type"],
+                "artists" => $artists,
+                "writers" => $writers
+            ]);
         }
     }
 }
