@@ -16,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController :: class, "index"])
     ->name("comic.index");
+    // create
+Route::get("/comic/create", [MainController :: class, "create"])
+    ->name("comic.create");
+    // store
+Route::post("/comic/store", [MainController :: class, "store"])
+    ->name("comic.store");
+
+
+
+// show
+Route::get("/comic/{id}", [MainController :: class, "show"])
+    ->name("comic.show");
 
