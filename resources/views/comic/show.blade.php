@@ -46,5 +46,10 @@
 
         <a class="btn btn-primary" href="{{ route('comic.index') }}">Torna alla lista</a>
         <a class="btn btn-info" href="{{ route('comic.edit', $comic->id) }}">EDIT</a>
+        <form class="d-inline" action="{{ route('comic.delete', $comic->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="DELETE">
+        </form>
     </div>
 @endsection

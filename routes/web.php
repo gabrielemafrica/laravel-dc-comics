@@ -38,5 +38,7 @@ Route::put("/comic/update/{id}", [MainController :: class, "update"])
     ->name("comic.update");
 
     //delete
+Route::delete("/comic/delete/{id}", [MainController :: class, "destroy"])
+    ->name("comic.delete");
 
 

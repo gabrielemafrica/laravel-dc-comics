@@ -56,4 +56,10 @@ class MainController extends Controller
         $comic -> update($data);
         return redirect() -> route("comic.show", $comic -> id);
     }
+    // delete
+    public function destroy($id) {
+        $comic = Comic::find($id);
+        $comic -> delete();
+        return redirect() -> route("comic.index");
+    }
 }
