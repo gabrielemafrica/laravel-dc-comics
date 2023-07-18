@@ -51,12 +51,8 @@
                 <input class="form-control" type="text" placeholder="writers" name="writers"
                     value="{{ $comic->writers }}">
             </div>
-            <button class="btn btn-info my-5" type="submit">UPDATE</button>
+            <button class="btn btn-info my-5" type="submit" onclick="return confirmChoose()">UPDATE</button>
         </form>
-
-
-
-
         <a class="btn btn-primary" href="{{ route('comic.index') }}">Torna alla lista</a>
     </div>
 @endsection

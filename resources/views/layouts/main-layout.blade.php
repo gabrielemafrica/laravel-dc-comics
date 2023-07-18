@@ -24,6 +24,12 @@
 
     @include('components.footer')
 
+    <script>
+        function confirmChoose() {
+            return confirm('Sei sicuro?');
+        }
+    </script>
+
 </body>
 
 </html>
