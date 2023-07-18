@@ -25,7 +25,18 @@ Route::post("/comic/store", [MainController :: class, "store"])
 
 
 
-// show
+    // show
 Route::get("/comic/{id}", [MainController :: class, "show"])
     ->name("comic.show");
+
+    //edit
+Route::get("/comic/edit/{id}", [MainController :: class, "edit"])
+    ->name("comic.edit");
+
+    //update
+Route::put("/comic/update/{id}", [MainController :: class, "update"])
+    ->name("comic.update");
+
+    //delete
+
 

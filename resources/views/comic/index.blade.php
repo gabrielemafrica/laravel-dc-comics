@@ -7,12 +7,14 @@
 @section('content')
     <div class="container text-center">
         <h1>i fumetti</h1>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled d-flex flex-column align-items-center gap-4">
             @foreach ($comics as $comic)
-                <li>
-                    <a href="{{ route('comic.show', $comic->id) }}">
+                <li class="element border border-info rounded w-25 py-4">
+                    <div class="mb-2">
                         {{ $comic->title }}
-                    </a>
+                    </div>
+                    <a class="btn btn-primary" href="{{ route('comic.show', $comic->id) }}">SHOW</a>
+                    <a class="btn btn-info" href="{{ route('comic.edit', $comic->id) }}">EDIT</a>
                 </li>
             @endforeach
         </ul>

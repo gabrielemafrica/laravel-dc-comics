@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container text-center py-5">
+    <div class="container text-center py-5 w-25">
         <h1>Create new comic</h1>
         <form action="{{ route('comic.store') }}" method="POST">
             @csrf

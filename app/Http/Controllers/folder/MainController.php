@@ -38,11 +38,22 @@ class MainController extends Controller
         return redirect() -> route("comic.show", $comic -> id);
     }
 
-
-
     // show
     public function show($id) {
         $comic = Comic::find($id);
         return view("comic.show", compact("comic"));
+    }
+
+    // edit
+    public function edit($id) {
+        $comic = Comic::find($id);
+        return view("comic.edit", compact("comic"));
+    }
+    // update
+    public function update(Request $request, $id) {
+        $data = $request -> all();
+        $comic = Comic::find($id);
+        $comic -> update($data);
+        return redirect() -> route("comic.show", $comic -> id);
     }
 }
