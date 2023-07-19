@@ -21,19 +21,11 @@ class MainController extends Controller
     // store
     public function store(Request $request) {
 
-        $data = $request -> all();
+        $data = $request -> validate(
+            $this -> getValidation()
+        );
 
-        $comic = Comic :: create([
-            "title" => $data["title"],
-            "description" => $data["description"],
-            "thumb" => $data["thumb"],
-            "price" => $data["price"],
-            "series" => $data["series"],
-            "sale_date" => $data["sale_date"],
-            "type" => $data["type"],
-            "artists" => $data["artists"],
-            "writers" => $data["writers"],
-        ]);
+        $comic = Comic :: create($data);
 
         return redirect() -> route("comic.show", $comic -> id);
     }
@@ -51,7 +43,9 @@ class MainController extends Controller
     }
     // update
     public function update(Request $request, $id) {
-        $data = $request -> all();
+        $data = $request -> validate(
+            $this -> getValidation()
+        );
         $comic = Comic::find($id);
         $comic -> update($data);
         return redirect() -> route("comic.show", $comic -> id);
@@ -61,5 +55,19 @@ class MainController extends Controller
         $comic = Comic::find($id);
         $comic -> delete();
         return redirect() -> route("comic.index");
+    }
+    //validaton roule
+    private function getValidation() {
+        return [
+            "title" => 'required|min:3|max:64',
+            "description" => 'sometimes|string',
+            "thumb" => 'required|url',
+            "price" => 'required|min:3|max:64',
+            "series" => 'required|min:3|max:64',
+            "sale_date" => 'required|date',
+            "type" => 'required|min:3|max:64',
+            "artists" => 'required|min:3|max:64',
+            "writers" => 'required|min:3|max:64',
+        ];
     }
 }

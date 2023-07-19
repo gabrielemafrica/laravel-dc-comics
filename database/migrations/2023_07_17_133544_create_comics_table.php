@@ -18,11 +18,11 @@ return new class extends Migration
             $table->id();
 
             $table -> string("title");
-            $table -> text("description");
+            $table -> text("description") -> nullable();
             $table -> text("thumb");
             $table -> string("price");
             $table -> string("series");
-            $table -> string("sale_date");
+            $table -> date("sale_date");
             $table -> string("type");
             $table -> string("artists");
             $table -> string("writers");

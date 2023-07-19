@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label for="sale_date">Sale date</label>
-                <input class="form-control" type="text" placeholder="sale_date" name="sale_date"
+                <input class="form-control" type="date" placeholder="sale_date" name="sale_date"
                     value="{{ $comic->sale_date }}">
             </div>
             <div class="form-group">
