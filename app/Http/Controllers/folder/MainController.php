@@ -22,7 +22,8 @@ class MainController extends Controller
     public function store(Request $request) {
 
         $data = $request -> validate(
-            $this -> getValidation()
+            $this -> getValidation(),
+            $this -> getValidationMessages()
         );
 
         $comic = Comic :: create($data);
@@ -44,7 +45,8 @@ class MainController extends Controller
     // update
     public function update(Request $request, $id) {
         $data = $request -> validate(
-            $this -> getValidation()
+            $this -> getValidation(),
+            $this -> getValidationMessages()
         );
         $comic = Comic::find($id);
         $comic -> update($data);
@@ -59,15 +61,48 @@ class MainController extends Controller
     //validaton roule
     private function getValidation() {
         return [
-            "title" => 'required|min:3|max:64',
-            "description" => 'sometimes|string',
-            "thumb" => 'required|url',
-            "price" => 'required|min:3|max:64',
-            "series" => 'required|min:3|max:64',
-            "sale_date" => 'required|date',
-            "type" => 'required|min:3|max:64',
-            "artists" => 'required|min:3|max:64',
-            "writers" => 'required|min:3|max:64',
+                "title" => 'required|min:3|max:64',
+                "description" => 'sometimes|string',
+                "thumb" => 'required|url',
+                "price" => 'required|min:3|max:64',
+                "series" => 'required|min:3|max:64',
+                "sale_date" => 'required|date',
+                "type" => 'required|min:3|max:64',
+                "artists" => 'required|min:3',
+                "writers" => 'required|min:3'
+        ];
+    }
+    private function getValidationMessages(){
+        return [
+
+            "title.required" => 'titolo richiesto',
+            "title.min" => 'titolo corto',
+            "title.max" => 'titolo lungo',
+            "description.required" => 'scrivi meglio description',
+            "description.string" => 'scrivi meglio description',
+            "thumb.required" => 'scrivi meglio thumb',
+            "thumb.url" => 'scrivi meglio thumb',
+            "price.required" => 'scrivi meglio price',
+            "price.min" => 'scrivi meglio price',
+            "price.max" => 'scrivi meglio price',
+            "series.required" => 'scrivi meglio series',
+            "series.min" => 'scrivi meglio series',
+            "series.max" => 'scrivi meglio series',
+            "sale_date.required" => 'scrivi meglio sale_date',
+            "sale_date.date" => 'scrivi meglio sale_date',
+            "type.required" => 'scrivi meglio type',
+            "type.min" => 'scrivi meglio type',
+            "type.max" => 'scrivi meglio type',
+            "artists.required" => 'scrivi meglio artists',
+            "artists.min" => 'scrivi meglio artists',
+            "writers.required" => 'scrivi meglio writers',
+            "writers.min" => 'scrivi meglio writers'
         ];
     }
 }
+
+
+
+
+
+

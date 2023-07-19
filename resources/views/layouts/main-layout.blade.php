@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     @vite('resources/js/app.js')
+    @vite('resources/js/confirm.js')
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     </div>
 
     {{-- message validation --}}
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -31,7 +32,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
     @include('components.footer')
 

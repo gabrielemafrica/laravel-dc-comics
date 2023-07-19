@@ -16,7 +16,7 @@
                     <a class="btn btn-primary" href="{{ route('comic.show', $comic->id) }}">SHOW</a>
                     <a class="btn btn-info" href="{{ route('comic.edit', $comic->id) }}">EDIT</a>
                     <form class="d-inline" action="{{ route('comic.delete', $comic->id) }}" method="POST"
-                        onsubmit="return confirmChoose()">
+                        onsubmit="return confirmDelete()">
                         @csrf
                         @method('DELETE')
                         <input class="btn btn-danger" type="submit" value="DELETE">
