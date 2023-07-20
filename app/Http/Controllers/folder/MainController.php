@@ -44,6 +44,9 @@ class MainController extends Controller
     }
     // update
     public function update(Request $request, $id) {
+        // $data = $request -> all();
+        // dd($data);
+
         $data = $request -> validate(
             $this -> getValidation(),
             $this -> getValidationMessages()
@@ -66,7 +69,7 @@ class MainController extends Controller
                 "thumb" => 'required|url',
                 "price" => 'required|min:3|max:64',
                 "series" => 'required|min:3|max:64',
-                "sale_date" => 'required|date',
+                "sale_date" => 'required|date:Y-m-d',
                 "type" => 'required|min:3|max:64',
                 "artists" => 'required|min:3',
                 "writers" => 'required|min:3'
